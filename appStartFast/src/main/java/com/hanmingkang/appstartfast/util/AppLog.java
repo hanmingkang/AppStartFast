@@ -1,4 +1,4 @@
-package com.example.appstartfast.util;
+package com.hanmingkang.appstartfast.util;
 
 import android.util.Log;
 

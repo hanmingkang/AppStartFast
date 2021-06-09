@@ -1,9 +1,7 @@
-package com.example.appstartfast.task;
+package com.hanmingkang.appstartfast.task;
 
-import android.util.Log;
-
-import com.example.appstartfast.AppStartFast;
-import com.example.appstartfast.util.AppLog;
+import com.hanmingkang.appstartfast.AppStartFast;
+import com.hanmingkang.appstartfast.util.AppLog;
 
 
 /**

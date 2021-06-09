@@ -1,9 +1,8 @@
-package com.example.appstartfast.task;
+package com.hanmingkang.appstartfast.task;
 
 import android.content.Context;
-import android.util.Log;
 
-import com.example.appstartfast.util.AppLog;
+import com.hanmingkang.appstartfast.util.AppLog;
 
 import java.util.List;
 import java.util.concurrent.CountDownLatch;

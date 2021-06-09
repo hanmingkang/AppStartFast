@@ -1,12 +1,11 @@
-package com.example.appstartfast;
+package com.hanmingkang.appstartfast;
 
 import android.content.Context;
-import android.util.Log;
 
 
-import com.example.appstartfast.task.Task;
-import com.example.appstartfast.task.TaskRunnable;
-import com.example.appstartfast.util.AppLog;
+import com.hanmingkang.appstartfast.task.Task;
+import com.hanmingkang.appstartfast.task.TaskRunnable;
+import com.hanmingkang.appstartfast.util.AppLog;
 
 import java.util.ArrayList;
 import java.util.HashMap;

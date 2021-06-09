@@ -1,4 +1,4 @@
-package com.example.appstartfast;
+package com.hanmingkang.appstartfast;
 
 import android.content.Context;
 
