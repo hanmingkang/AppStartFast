@@ -1,4 +1,4 @@
-package com.zz.appstartfast;
+package com.example.appstartfast;
 
 /**
  * @description:

@@ -1,10 +1,12 @@
-package com.zz.appstartfast;
+package com.example.appstartfast;
 
 import android.content.Context;
 import android.util.Log;
 
-import com.zz.appstartfast.task.Task;
-import com.zz.appstartfast.task.TaskRunnable;
+
+import com.example.appstartfast.task.Task;
+import com.example.appstartfast.task.TaskRunnable;
+import com.example.appstartfast.util.AppLog;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -55,6 +57,9 @@ public class AppStartFast {
         this.taskHashMap = builder.taskHashMap;
         this.taskList = builder.taskList;
         this.context = builder.context;
+        if(builder.isEnable != null) {
+            AppLog.isLogEnable = builder.isEnable;
+        }
         cpuThreadPool = new ThreadPoolExecutor(
                 CORE_POOL_SIZE,
                 CORE_POOL_SIZE,
@@ -65,7 +70,7 @@ public class AppStartFast {
 
 
     public void start() {
-        Log.e("kang", "start");
+        AppLog.D("start");
         if (taskList.size() == 0) {
             return;
         }
@@ -79,10 +84,10 @@ public class AppStartFast {
             throw new CircleException("tasks contains circle");
         }
 
-        Log.d("kang", "taskList");
+        AppLog.D("taskList");
 
         for (final Task task : taskList) {
-            Log.d("kang", task.getClass().getName() + "进入线程池");
+           AppLog.D(task.getClass().getName() + "进入线程池");
             cpuThreadPool.submit(new TaskRunnable(this, task));
         }
         Runtime.getRuntime().availableProcessors();
@@ -122,12 +127,12 @@ public class AppStartFast {
     }
 
     public void unLockDependencies(Task taskFinished) {
-        Log.d("kang", "解除依赖");
+        AppLog.D("解除依赖");
         for (final Task task : taskList) {
             if (task.dependencies() != null) {
                 for (Class<? extends Task> taskClazz : task.dependencies()) {
                     if (taskClazz == taskFinished.getClass()) {
-                        Log.d("kang", task.getClass().getName() + "解锁-1");
+                        AppLog.D(task.getClass().getName() + "解锁-1");
                         task.unLock();
                     }
                 }
@@ -135,12 +140,13 @@ public class AppStartFast {
         }
     }
 
-    static class Builder {
+    public static class Builder {
         private List<Task> taskList = new ArrayList<>();
         private Map<Task, Integer> taskHashMap = new HashMap<>();
         private Context context;
+        private Boolean isEnable;
 
-        Builder(Context context) {
+        public Builder(Context context) {
             this.context = context;
         }
 
@@ -152,6 +158,11 @@ public class AppStartFast {
                     task.initCountDownLatch();
                 }
             }
+            return this;
+        }
+
+        public Builder setLogEnable(Boolean isEnable) {
+            this.isEnable = isEnable;
             return this;
         }
 

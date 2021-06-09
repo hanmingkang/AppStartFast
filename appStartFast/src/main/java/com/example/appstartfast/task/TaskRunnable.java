@@ -1,9 +1,10 @@
-package com.zz.appstartfast.task;
+package com.example.appstartfast.task;
 
-import android.content.Context;
 import android.util.Log;
 
-import com.zz.appstartfast.AppStartFast;
+import com.example.appstartfast.AppStartFast;
+import com.example.appstartfast.util.AppLog;
+
 
 /**
  * @description:
@@ -22,9 +23,9 @@ public class TaskRunnable implements Runnable {
 
     @Override
     public void run() {
-        Log.d("kang",task.getClass().getName() + "开始阻塞");
+        AppLog.D(task.getClass().getName() + "开始阻塞");
         task.lock();
-        Log.d("kang",task.getClass().getName() + "结束阻塞");
+        AppLog.D(task.getClass().getName() + "结束阻塞");
         task.run(appStartFast.context);
         appStartFast.unLockDependencies(task);
     }

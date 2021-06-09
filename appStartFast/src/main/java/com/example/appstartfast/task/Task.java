@@ -1,7 +1,9 @@
-package com.zz.appstartfast.task;
+package com.example.appstartfast.task;
 
 import android.content.Context;
 import android.util.Log;
+
+import com.example.appstartfast.util.AppLog;
 
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
@@ -36,9 +38,9 @@ public abstract class Task {
     }
 
     final public void unLock() {
-        Log.d("kang", this.getClass().getName() + "--？？");
+        AppLog.D(this.getClass().getName() + "--判空");
         if (countDownLatch != null) {
-            Log.d("kang", this.getClass().getName() + "--");
+           AppLog.D(this.getClass().getName() + "--");
             countDownLatch.countDown();
         }
     }

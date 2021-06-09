@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.appstartfast.AppStartFast;
 import com.zz.appstartfast.task.ATask;
 import com.zz.appstartfast.task.BTask;
 import com.zz.appstartfast.task.CTask;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 .addTask(new BTask())
                 .addTask(new ETask())
                 .addTask(new HTask())
+                .setLogEnable(true)
                 .build();
         appStartFast.start();
     }

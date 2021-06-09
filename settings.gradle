@@ -1,2 +1,3 @@
+include ':appStartFast'
 include ':app'
 rootProject.name = "AppStartFast"
