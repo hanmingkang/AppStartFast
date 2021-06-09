@@ -2,7 +2,7 @@
 
 #### 依赖指南
 Gradle：
-```
+```java
     allprojects {
       repositories {
          ...
